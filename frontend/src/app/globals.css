@@ -1,0 +1,745 @@
+/* ================================================================
+   Moniola Laurels Educational School — Global Overrides
+   Loaded AFTER the Webflow stylesheet so everything here wins.
+   ================================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ─── CSS VARIABLE OVERRIDES — warm/beige → navy ─────────────── */
+:root {
+  --_🎨-color--base---color-yellow--dark-100:  #0a1628 !important;
+  --_🎨-color--base---color-yellow--light-100: #e8edf5 !important;
+  --_🎨-color--base---background-base--light:  #f0f3f8 !important;
+  --_🎨-color--base---background-lift--light:  #ffffff !important;
+  --_🎨-color--base---background-base--dark:   #0a1628 !important;
+  --_🎨-color--base---background-lift--dark:   #152236 !important;
+}
+
+/* ================================================================
+   HERO SECTION — zero padding, sticky behavior preserved
+   ================================================================ */
+.section.hero-home-section {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* The video-hero-home div IS the hero — fill full viewport */
+.video-hero-home.w-background-video {
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  height: 100vh !important;
+  min-height: 600px !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 !important;
+}
+
+/* ================================================================
+   FEATURES SECTION — kill the warm beige bg + rounded top
+   The Webflow CSS gives it border-radius so it floats above the
+   hero as a card. We remove the radius and set a cool bg.
+   ================================================================ */
+.section.features-section {
+  background-color: #f0f3f8 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  position: relative !important;
+  z-index: 3 !important;
+}
+
+/* ================================================================
+   PHILOSOPHY SECTION — was warm yellow bg, now white
+   ================================================================ */
+.section.philosophy-section {
+  background-color: #ffffff !important;
+}
+
+/* ================================================================
+   BLOG/RESULT CHECKER — was dark, reset to cool light blue
+   ================================================================ */
+.section.blog-carousel-section {
+  background-color: #f0f3f8 !important;
+  --_🎨-color--tokens---background--base: #f0f3f8 !important;
+  --_🎨-color--tokens---tone--strong: #0a1628 !important;
+}
+
+/* ================================================================
+   VIDEO FIX — Webflow sets inset:-100% and z-index:-100 on video
+   Both push the video off screen. Override everything.
+   ================================================================ */
+.w-background-video > video {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  z-index: 0 !important;
+  margin: 0 !important;
+  pointer-events: none !important;
+}
+
+.video-home.w-background-video {
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  height: 560px !important;
+}
+
+.video-stats.w-background-video {
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  height: 420px !important;
+}
+
+.video-cta.w-background-video {
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  height: 460px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* ─── OVERLAYS ─────────────────────────────────────────────────
+   Webflow sets ALL overlays as:  height: 40-60%;  inset: auto 0% 0%
+   That means bottom-anchored partial overlays with warm gradients.
+   We override: height→100%, inset→0, background-image→none, + navy.
+   ---------------------------------------------------------------- */
+.overlay-hero-home {
+  background-image: none !important;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 22, 40, 0.55) 0%,
+    rgba(10, 22, 40, 0.10) 40%,
+    rgba(10, 22, 40, 0.65) 100%
+  ) !important;
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+.overlay-stats-bottom {
+  background-image: none !important;
+  background: linear-gradient(
+    to top,
+    rgba(10, 22, 40, 0.90) 0%,
+    rgba(10, 22, 40, 0.20) 70%,
+    transparent 100%
+  ) !important;
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+.overlay-cta {
+  background-image: none !important;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 22, 40, 0.55) 0%,
+    rgba(10, 22, 40, 0.80) 100%
+  ) !important;
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+/* ─── CONTENT Z-INDEX — sits above overlays ─────────────────── */
+.video-hero-home .main-container,
+.video-stats .main-container,
+.video-cta .content-cta {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.overlay-video-home {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* ================================================================
+   SECTION BACKGROUNDS — replace warm beige with cool light blue
+   ================================================================ */
+.section.features-section        { background-color: #f0f3f8 !important; }
+.section.philosophy-section      { background-color: #ffffff !important; }
+.section.testimonial-home-section{ background-color: #f0f3f8 !important; }
+.section.faq-section             { background-color: #ffffff !important; }
+.section.blog-carousel-section   { background-color: #f0f3f8 !important; }
+.section.stats-section           { background-color: transparent !important; }
+
+/* ================================================================
+   NAVBAR — deep navy, white text on links only
+   ================================================================ */
+.navbar.w-nav {
+  background-color: rgba(10, 22, 40, 0.97) !important;
+  backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+/* Scope white text ONLY to nav links — not buttons */
+.nav-menu .nav-link div,
+.nav-menu .nav-link,
+.nav-dropdown-toggle > div:first-child,
+.brand-nav span,
+.brand-nav strong,
+.icon-dropdown {
+  color: rgba(255,255,255,0.85) !important;
+}
+
+.nav-dropdown-list,
+.nav-inner-dropdown-list {
+  background-color: #0f2240 !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+}
+
+.nav-dropdown-link {
+  color: rgba(255,255,255,0.8) !important;
+}
+
+.nav-dropdown-link:hover {
+  color: #ffffff !important;
+  background-color: rgba(255,255,255,0.06) !important;
+}
+
+/* Hamburger icon */
+.menu-button .icon-nav-menu {
+  color: rgba(255,255,255,0.85) !important;
+}
+
+/* ================================================================
+   CTA MAIN BUTTONS — fix text visibility
+   Webflow uses .button-text-mask + .button-text for animation.
+   The text color must be set explicitly on .button-text.
+   ================================================================ */
+
+/* Primary button (white bg with dark text in Webflow original) */
+.cta-main .button-text {
+  color: #ffffff !important;
+}
+
+/* Primary button background → navy */
+.cta-main .button-bg {
+  background-color: #1a3a6b !important;
+}
+
+/* Icon in primary button */
+.cta-main .icon-button {
+  color: #ffffff !important;
+}
+
+/* Secondary variant — dark text on light/transparent bg */
+.cta-main.w-variant-1ff8d96e-78cc-eac8-de90-206ecdaded5f .button-text,
+.cta-main .button-text.w-variant-1ff8d96e-78cc-eac8-de90-206ecdaded5f,
+[class*="w-variant-1ff8d96e"] .button-text {
+  color: #0a1628 !important;
+}
+
+.cta-main.w-variant-1ff8d96e-78cc-eac8-de90-206ecdaded5f .button-bg,
+[class*="w-variant-1ff8d96e"] .button-bg {
+  background-color: rgba(255,255,255,0.92) !important;
+}
+
+/* Small CTA (nav button) */
+.cta-small .button-text {
+  color: #ffffff !important;
+}
+
+.cta-small .button-bg {
+  background-color: #1a3a6b !important;
+}
+
+/* Tertiary link button */
+.cta-tertiary {
+  color: #0a1628 !important;
+  border-color: #0a1628 !important;
+}
+.cta-tertiary div {
+  color: #0a1628 !important;
+}
+
+/* ================================================================
+   FEATURE CARDS
+   ================================================================ */
+.feature-card {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.wrap-about-home .label-large {
+  color: #1a3a6b !important;
+}
+
+/* ================================================================
+   LABEL MASTER PILLS
+   ================================================================ */
+.label-master {
+  background-color: #0a1628 !important;
+  color: #ffffff !important;
+}
+
+.label-master .label-small {
+  color: #ffffff !important;
+}
+
+.label-master.light {
+  background-color: rgba(255,255,255,0.15) !important;
+}
+
+.label-master.light .label-small {
+  color: rgba(255,255,255,0.9) !important;
+}
+
+/* Hero tag-wrap pill */
+.tag-wrap {
+  background-color: rgba(255,255,255,0.1) !important;
+  border-color: rgba(255,255,255,0.2) !important;
+}
+
+.tag-wrap .label-small {
+  color: rgba(255,255,255,0.9) !important;
+}
+
+/* ================================================================
+   FAQ SECTION
+   ================================================================ */
+.expandable-single {
+  border-color: #dce4f0 !important;
+}
+
+.faq-horizontal,
+.faq-vertical {
+  background-color: #0a1628 !important;
+}
+
+/* ================================================================
+   TESTIMONIAL CARDS & STARS
+   ================================================================ */
+.card-testimonial {
+  background-color: #ffffff !important;
+  border-color: #dce4f0 !important;
+}
+
+.star {
+  color: #1a3a6b !important;
+}
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+.content-footer {
+  background-color: unset !important;
+}
+
+.footer-link,
+.footer-legal-link {
+  color: rgba(255,255,255,0.65) !important;
+}
+
+.footer-link:hover,
+.footer-legal-link:hover {
+  color: #ffffff !important;
+}
+
+.footer-left a,
+.footer-left .tone-strong a {
+  color: rgba(255,255,255,0.85) !important;
+}
+
+.label-small.tone-medium {
+  color: rgba(255,255,255,0.45) !important;
+}
+
+/* ================================================================
+   RESULT CHECKER FORM
+   ================================================================ */
+.result-checker-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+}
+
+.result-checker-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: #0a1628;
+}
+
+.result-checker-card p {
+  font-size: 0.875rem;
+  color: #4a6080;
+  margin-bottom: 1.5rem;
+}
+
+.rc-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.rc-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #4a6080;
+}
+
+.rc-input {
+  background: #f0f3f8;
+  border: 1.5px solid #dce4f0;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  width: 100%;
+  transition: border-color 0.15s;
+  color: #0a1628;
+  appearance: auto;
+}
+
+.rc-input:focus {
+  outline: none;
+  border-color: #1a3a6b;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(26,58,107,0.12);
+}
+
+.rc-input::placeholder { color: #8a9db5; }
+
+.rc-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.rc-error {
+  background: #fff0f0;
+  border: 1px solid #ffcdd2;
+  color: #c62828;
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.rc-btn {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background: #0a1628;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background 0.15s;
+  margin-top: 0.25rem;
+}
+
+.rc-btn:hover { background: #1a3a6b; }
+.rc-btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.rc-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ================================================================
+   REPORT SHEET
+   ================================================================ */
+.report-sheet {
+  background: #fff;
+  border: 1px solid #dce4f0;
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.report-sheet-header {
+  background: #0a1628 !important;
+  padding: 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.report-sheet-header h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
+
+.report-sheet-header .motto {
+  font-size: 0.875rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 0.3rem;
+}
+
+.report-sheet-header .address {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 1rem;
+}
+
+.term-tag {
+  display: inline-block;
+  background: #1a3a6b !important;
+  color: #ffffff !important;
+  padding: 0.3rem 1.25rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.report-body { padding: 1.75rem 2rem; }
+
+.student-info-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #dce4f0;
+  align-items: start;
+}
+
+.student-name {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  color: #0a1628;
+}
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 2rem;
+}
+
+.meta-item span {
+  font-size: 0.7rem;
+  color: #7a90a8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.meta-item strong {
+  display: block;
+  font-size: 0.875rem;
+  color: #0a1628;
+  margin-top: 1px;
+}
+
+.avg-box {
+  background: #e8edf5;
+  border: 1px solid #c8d6ea;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  min-width: 100px;
+}
+
+.avg-num { font-size: 2rem; font-weight: 900; color: #0a1628; line-height: 1; }
+.avg-label { font-size: 0.7rem; color: #7a90a8; margin-top: 0.25rem; }
+
+.section-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #1a3a6b;
+  margin-bottom: 0.875rem;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  margin-bottom: 1.75rem;
+  overflow-x: auto;
+  display: block;
+}
+
+.data-table thead, .data-table tbody, .data-table tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.data-table th {
+  background: #e8edf5;
+  color: #4a6080;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.7rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #dce4f0;
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 0.7rem 0.75rem;
+  border-bottom: 1px solid #edf1f7;
+  color: #0a1628;
+}
+
+.data-table tr:last-child td { border-bottom: none; }
+.data-table tr:hover td { background: #f0f3f8; }
+
+.grade-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.18rem 0.55rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.g-a1 { background: #dcfce7; color: #16a34a; }
+.g-b  { background: #dbeafe; color: #1d4ed8; }
+.g-c  { background: #f3e8ff; color: #7c3aed; }
+.g-d  { background: #fef3c7; color: #d97706; }
+.g-e  { background: #ffedd5; color: #ea580c; }
+.g-f  { background: #fee2e2; color: #dc2626; }
+
+.psycho-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.psycho-item {
+  background: #f0f3f8;
+  padding: 0.6rem 0.75rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+  border: 1px solid #dce4f0;
+}
+
+.psycho-val { font-weight: 700; color: #0a1628; }
+
+.remark-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.remark-box {
+  border: 1px solid #dce4f0;
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+}
+
+.remark-box-label {
+  font-size: 0.7rem;
+  color: #7a90a8;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  margin-bottom: 0.3rem;
+}
+
+.remark-box-text { font-size: 0.875rem; color: #4a6080; font-style: italic; }
+
+.sig-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #dce4f0;
+  text-align: center;
+}
+
+.sig-line { border-bottom: 1px solid #c8d6ea; height: 36px; margin-bottom: 0.35rem; }
+.sig-label { font-size: 0.75rem; color: #7a90a8; }
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 991px) {
+  .video-hero-home.w-background-video { height: 100vh !important; min-height: 500px !important; }
+  .video-home.w-background-video      { height: 360px !important; }
+  .video-stats.w-background-video     { height: 340px !important; }
+  .video-cta.w-background-video       { height: 360px !important; }
+}
+
+@media (max-width: 767px) {
+  .section.hero-home-section          { padding: 0 !important; }
+  .video-hero-home.w-background-video { height: 100svh !important; min-height: 500px !important; align-items: flex-end !important; padding-bottom: 3rem !important; }
+  .master-hero-home                   { flex-direction: column !important; gap: 1.5rem !important; }
+  .content-hero-home h1               { font-size: clamp(2rem, 8vw, 3rem) !important; }
+  .map-card                           { width: 100% !important; max-width: 280px !important; }
+  .video-home.w-background-video      { height: 260px !important; }
+  .video-stats.w-background-video     { height: 280px !important; }
+  .video-cta.w-background-video       { height: 320px !important; }
+  .stats-grid.w-layout-grid           { grid-template-columns: 1fr 1fr !important; }
+  .features-grid.w-layout-grid        { grid-template-columns: 1fr !important; }
+  .phi-halves.w-layout-grid           { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .left-column                        { min-height: 320px !important; }
+  .footer-halves.w-layout-grid        { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+  .footer-columns                     { flex-direction: column !important; gap: 1.5rem !important; }
+  .rc-row                             { grid-template-columns: 1fr !important; }
+  .report-body                        { padding: 1.25rem 1rem !important; }
+  .student-info-row                   { grid-template-columns: 1fr !important; }
+  .meta-grid                          { grid-template-columns: 1fr 1fr !important; }
+  .psycho-grid                        { grid-template-columns: 1fr 1fr !important; }
+  .remark-grid                        { grid-template-columns: 1fr !important; }
+  .sig-row                            { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+  .image-absolute-1, .image-absolute-2, .image-absolute-3 { display: none !important; }
+  .button-wrap-hero-home              { flex-direction: column !important; align-items: flex-start !important; gap: 0.75rem !important; }
+  .headline-program-carousel          { flex-direction: column !important; gap: 1rem !important; align-items: flex-start !important; }
+  .headline-video-home                { flex-direction: column !important; gap: 0.75rem !important; }
+}
+
+@media (max-width: 479px) {
+  .video-hero-home.w-background-video { height: 100svh !important; }
+  .stats-grid.w-layout-grid           { grid-template-columns: 1fr !important; }
+  .meta-grid                          { grid-template-columns: 1fr !important; }
+  .psycho-grid                        { grid-template-columns: 1fr !important; }
+  .data-table                         { font-size: 0.75rem !important; }
+  .data-table th, .data-table td      { padding: 0.5rem 0.4rem !important; }
+}
+
+/* ─── PRINT ─────────────────────────────────────────────────── */
+@media print {
+  .no-print, .master-navigation, .section, .footer { display: none !important; }
+  body { background: white !important; }
+  .report-sheet { box-shadow: none !important; border: 1px solid #ccc !important; }
+}
